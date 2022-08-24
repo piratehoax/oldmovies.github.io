@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimal-ui, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="keywords" content="movies download, yts, yify movies, yts movies, yts torrents, yify torrents, yts.mx, yts.ag, yts.am, yts.lt,torrent movies, tv series download, best movies site,sd movies point">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="icon" href="images/icons8-pirate-100 (1).png" type="image/icon type">
+
+    <title>Movies</title>
+</head>
+<body>
+  <div class="w-full h-full"
+    style="background-image: url('images/1.jpg')">
+    <header class="text-white bg-black bg-opacity-50 body-font">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+          <a href = "https://piratehoax.github.io/home.github.io/" class="flex title-font font-medium items-center text-white mb-4 md:mb-0">
+            <img class="w-12 h-12 object-cover " src="images/icons8-pirate-100 (1).png" alt="blog">
+            <span class="ml-3 text-xl">Pirate H04X</span>
+          </a>
+          <nav class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-700	flex flex-wrap items-center text-base justify-center">
+            <a href = "http://127.0.0.1:5501/movies.html"class="mr-5 hover:text-red-600">Movies</a>
+            <a href = "http://127.0.0.1:5501/tv-series.html"class="mr-5 hover:text-red-600">TV Series</a>
+            
+          </nav>
+          <div class="hidden mx-0 md:block">
+            <div class="relative">
+                <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+                    <svg class="w-5 h-5 text-gray-400" viewBox="0 0 24 24" fill="none">
+                        <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                </span>
+
+                <input type="text" class="w-full py-1 pl-10 pr-4 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-opacity-40 focus:ring-blue-300" placeholder="Not Available For Now">
+            </div>
+        </div>
+  <div class="dropdown">
+  <div class="select">
+        <span class="selected"></span>
+        <div class="caret"></div> 
+    <ul class="menu">
+        <a href="http://127.0.0.1:5501/request.html"><li>Request</li></a>
+        <li>Profile</li>
+        <a href = "http://127.0.0.1:5501/home.html"><li>Log in</li></a>
+    </ul>
+</div>
+
+<style>
+body {
+    font-family: Helvetica, sans-serif;
+    background: #A51C1C;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.dropdown {
+    min-width: 0em;
+    position: relative;
+    margin: 1em;
+}
+.dropdown * {
+    box-sizing: border-box;
+}
+.select {
+background: #A51C1C transparent;
+color: #fff;
+display: flex;
+justify-content: space-between;
+align-items: center;
+border: 0.5px #2a2f3b transparent solid;
+border-radius: 0.5em;
+padding: 0.5em;
+cursor: pointer;
+transition: background 0.3s;
+}
+
+.select-clicked {
+    border: 3px  #26DCDC solid;
+    box-shadow: 0 0 0.8em #26489a ;
+}
+
+.select:hover {
+    background: #6E1313 transparent;
+}
+.caret {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid #fff;
+    transition: 0.3s;
+}
+.caret-rotate {
+    transform: rotate(180deg);
+}
+.menu {
+    list-style: none;
+    padding: 0.2em 0.5em;
+    background: bg-black bg-opacity-50 ;
+    border: 1px #26DCDC solid;
+    box-shadow: 0 0.5em 1em rgba(0,0,0,0.2);
+    border-radius: 0.5em;
+    color: #fff;
+    position: absolute;
+    top: 3em;
+    left: 50%;
+    width: 300%;
+    transform: translateX(-50%);
+    opacity: 0;
+    display: none;
+    transition: 0.2s;
+    z-index: 1;
+}
+.menu li {
+    padding: 0.4em 0.5em;
+    margin: 0.3em 0;
+    border-radius: 0.5em;
+    cursor: pointer;
+}
+.menu li:hover {
+    background: #26DCDC;
+}
+.menu-open {
+    display: block;
+    opacity: 1; 
+}
+</style>
+
+
+<script>
+const dropdowns = document.querySelectorAll('.dropdown');
+
+dropdowns.forEach(dropdown => {
+    const select = dropdown.querySelector('.select');
+    const caret = dropdown.querySelector('.caret');
+    const menu = dropdown.querySelector('.menu');
+    const options = dropdown.querySelectorAll('.menu li')
+    const selected = dropdown.querySelector('.selected');
+
+    select.addEventListener('click',() => {
+        select.classList.toggle('select-clicked');
+        caret.classList.toggle('caret-rotate');
+        menu.classList.toggle('menu-open');
+    }); 
+    option.forEach(option => {
+        option.addEventListener('click', () => {
+            selected.innerText = option.innerText;
+            select.classList.remove('select-clicked');
+            caret.classList.remove('caret-rotate');
+            menu.classList.remove('menu-open');
+            options.forEach(option => {
+                option.classList.remove('active')
+            });
+            option.classList.add('active');
+        });
+    });
+});
+</script>  
+        
+      </header>
+      <section class="text-gray-400 bg-black bg-opacity-50 body-font">
+        <div class="container px-32 py-12 mx-auto">
+          <div class="flex flex-wrap -m-4">
+            <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+              <a href="https://mega.nz/file/3m4RmQCS#n_D6TeOxEaBMBMebiSB7hv5vV_DqS48Bwp5CkHV1JyY" class="block relative h-60 rounded overflow-hidden">
+                <img alt="ecommerce" class="object-cover object-center w-56 h-42 block border-solid border-2 border-sky-500" src="images/tv-series/american_psycho_ver2.jpg">
+              </a>
+              <div class="mt-4">
+                <a href="https://mega.nz/file/3m4RmQCS#n_D6TeOxEaBMBMebiSB7hv5vV_DqS48Bwp5CkHV1JyY"><h3 class="text-white text-xs tracking-widest title-font mb-1">Horror/Thriller</h3>
+                <h2 class="text-white title-font text-lg font-medium hover:text-red-600">American Psycho
+                </h2></a>
+              </div>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+              <a href="https://mega.nz/file/CuY1QJJC#YinfLRaYTkDPOetCHXPjE4in6rTw1Fg_nLvP7jFv4b0" class="block relative h-60 rounded overflow-hidden">
+                <img alt="ecommerce" class="object-cover object-center w-56 h-42 block border-solid border-2 border-sky-500" src="images/tv-series/dredd_ver2.jpg">
+              </a>
+              <div class="mt-4">
+                <a href="https://mega.nz/file/CuY1QJJC#YinfLRaYTkDPOetCHXPjE4in6rTw1Fg_nLvP7jFv4b0"><h3 class="text-white text-xs tracking-widest title-font mb-1">Action/Sci-fi</h3>
+                <h2 class="text-white title-font text-lg font-medium hover:text-red-600">Dredd</h2></a>
+              </div>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+              <a href="https://mega.nz/file/a6AUhKaI#VhD7mSopuXUMaNO8bFRCQk5cUJtc7hlpHqinDY88lVE" class="block relative h-60 rounded overflow-hidden">
+                <img alt="ecommerce" class="object-cover object-center w-56 h-42 block border-solid border-2 border-sky-500" src="images/hostel_ver5.jpg">
+              </a>
+              <div class="mt-4">
+                <a href="https://mega.nz/file/a6AUhKaI#VhD7mSopuXUMaNO8bFRCQk5cUJtc7hlpHqinDY88lVE"><h3 class="text-white text-xs tracking-widest title-font mb-1">Horror/Thriller</h3>
+                <h2 class="text-white title-font text-lg font-medium hover:text-red-600">Hostel</h2></a>
+              </div>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+              <a href="https://mega.nz/file/Gy4RFIBa#F9kMaSPSmwGViZTPWzUx6OlW8FYAAnooZIkXsCMCRO0" class="block relative h-60 rounded overflow-hidden">
+                <img alt="ecommerce" class="object-cover object-center w-56 h-42 block border-solid border-2 border-sky-500" src="images/hostel_part_ii_ver4.jpg">
+              </a>
+              <div class="mt-4">
+                <a href="https://mega.nz/file/Gy4RFIBa#F9kMaSPSmwGViZTPWzUx6OlW8FYAAnooZIkXsCMCRO0"><h3 class="text-white text-xs tracking-widest title-font mb-1">Horror/Thriller</h3>
+                <h2 class="text-white title-font text-lg font-medium hover:text-red-600">Hostel: Part II
+                </h2></a>
+              </div>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+              <a href="https://mega.nz/file/mmQyXDIa#ljz55CRfug9ivpjpm4FJsTz2-GT-dOCp23EyMeVELUw" class="block relative h-60 rounded overflow-hidden">
+                <img alt="ecommerce" class="object-cover object-center w-56 h-42 block border-solid border-2 border-sky-500" src="images/Hostelpart3.jpg">
+              </a>
+              <div class="mt-4">
+                <a href="https://mega.nz/file/mmQyXDIa#ljz55CRfug9ivpjpm4FJsTz2-GT-dOCp23EyMeVELUw"><h3 class="text-white text-xs tracking-widest title-font mb-1">Horror/Thriller</h3>
+                <h2 class="text-white title-font text-lg font-medium hover:text-red-600">Hostel: Part III</h2></a>
+              </div>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+              <a href="https://mega.nz/file/H7gx2R6L#wgB8_IxTLCTgJ9rQYHiRsZlCGfqQcxuatYcG8plaOfk" class="block relative h-60 rounded overflow-hidden">
+                <img alt="ecommerce" class="object-cover object-center w-56 h-42 block border-solid border-2 border-sky-500" src="images/john_wick_ver3.jpg">
+              </a>
+              <div class="mt-4">
+                <a href="https://mega.nz/file/H7gx2R6L#wgB8_IxTLCTgJ9rQYHiRsZlCGfqQcxuatYcG8plaOfk"> Action/Thriller</h3>
+                <h2 class="text-white title-font text-lg font-medium hover:text-red-600">John Wick</h2></a>
+              </div>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+              <a href="https://mega.nz/file/Cy4ViKhb#nyIdhkyN7IwZvGga_Gg9a7dRnXwaMF1BfCDLeGAjyZc" class="block relative h-60 rounded overflow-hidden">
+                <img alt="ecommerce" class="object-cover object-center w-56 h-42 block border-solid border-2 border-sky-500" src="images/morbius.jpg">
+              </a>
+              <div class="mt-4">
+                <a href="https://mega.nz/file/Cy4ViKhb#nyIdhkyN7IwZvGga_Gg9a7dRnXwaMF1BfCDLeGAjyZc"><h3 class="text-white text-xs tracking-widest title-font mb-1">Action/Fantasy</h3>
+                <h2 class="text-white title-font text-lg font-medium hover:text-red-600">Morbius</h2></a>
+              </div>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+              <a href="https://mega.nz/file/urgAnDYY#GRKpbMaR0WyZqSzv23uWuViBSZH7YerLjXr9ZKKuUxo" class="block relative h-60 rounded overflow-hidden">
+                <img alt="ecommerce" class="object-cover object-center w-56 h-42 block border-solid border-2 border-sky-500" src="images/saw_ver1.jpg">
+              </a>
+              <div class="mt-4">
+                <a href="https://mega.nz/file/urgAnDYY#GRKpbMaR0WyZqSzv23uWuViBSZH7YerLjXr9ZKKuUxo"><h3 class="text-white text-xs tracking-widest title-font mb-1">Horror/Thriller</h3>
+                <h2 class="text-white title-font text-lg font-medium hover:text-red-600">Saw</h2></a>
+              </div>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+              <a href="https://mega.nz/file/G2YExZKS#hKxiOnIQpJbDPvlUnlcc5nxAzPReHIvDvFUFnQc2e2I" class="block relative h-60 rounded overflow-hidden">
+                <img alt="ecommerce" class="object-cover object-center w-56 h-42 block border-solid border-2 border-sky-500" src="images/saw_two.jpg">
+              </a>
+              <div class="mt-4">
+                <a href="https://mega.nz/file/G2YExZKS#hKxiOnIQpJbDPvlUnlcc5nxAzPReHIvDvFUFnQc2e2I"><h3 class="text-white text-xs tracking-widest title-font mb-1">Horror/Thriller</h3>
+                <h2 class="text-white title-font text-lg font-medium hover:text-red-600">Saw II
+                </h2></a>
+              </div>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+              <a href="https://mega.nz/file/b7pjAb4Q#1aroSFar5mYb8AFm6gFD9FOrbCK-vsm-BFKpMOrxozc" class="block relative h-60 rounded overflow-hidden">
+                <img alt="ecommerce" class="object-cover object-center w-56 h-42 block border-solid border-2 border-sky-500" src="images/sinister.jpg">
+              </a>
+              <div class="mt-4">
+                <a href="https://mega.nz/file/b7pjAb4Q#1aroSFar5mYb8AFm6gFD9FOrbCK-vsm-BFKpMOrxozc"><h3 class="text-white text-xs tracking-widest title-font mb-1">Horror/Thriller</h3>
+                <h2 class="text-white title-font text-lg font-medium hover:text-red-600">Sinister</h2></a>
+              </div>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+              <a href="https://mega.nz/file/Or4mSDQa#6Mhid2koeEiM7j8t1Mn2qAm3JMuaPssvPfs-oXU-u0k" class="block relative h-60 rounded overflow-hidden">
+                <img alt="ecommerce" class="object-cover object-center w-56 h-42 block border-solid border-2 border-sky-500" src="images/sinister_two.jpg">
+              </a>
+              <div class="mt-4">
+                <a href="https://mega.nz/file/Or4mSDQa#6Mhid2koeEiM7j8t1Mn2qAm3JMuaPssvPfs-oXU-u0k"><h3 class="text-white text-xs tracking-widest title-font mb-1">Horror/Thriller</h3>
+                <h2 class="text-white title-font text-lg font-medium hover:text-red-600">Sinister 2</h2></a>
+              </div>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+              <a href="https://mega.nz/file/73BHhJ6L#C_Gq4ZvXDCiKKnOQePrVB4bkT1yWdZ5keGd4fZCC1Ic" class="block relative h-60 rounded overflow-hidden">
+                <img alt="ecommerce" class="object-cover object-center w-56 h-42 block border-solid border-2 border-sky-500" src="images/batman_ver9.jpg">
+              </a>
+              <div class="mt-4">
+                <a href="https://mega.nz/file/73BHhJ6L#C_Gq4ZvXDCiKKnOQePrVB4bkT1yWdZ5keGd4fZCC1Ic"><h3 class="text-white text-xs tracking-widest title-font mb-1">Action/Adventure</h3>
+                <h2 class="text-white title-font text-lg font-medium hover:text-red-600">The Batman</h2></a>
+              </div>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+              <a href="https://mega.nz/file/j7BzVZJK#3xwFQZZ82arbkmuQZSPYNdj2j4YKFYtSmwXX5KUvXTw" class="block relative h-60 rounded overflow-hidden">
+                <img alt="ecommerce" class="object-cover object-center w-56 h-42 block border-solid border-2 border-sky-500" src="images/thor_love_and_thunder_ver3.jpg">
+              </a>
+              <div class="mt-4">
+                <a href="https://mega.nz/file/j7BzVZJK#3xwFQZZ82arbkmuQZSPYNdj2j4YKFYtSmwXX5KUvXTw"><h3 class="text-white text-xs tracking-widest title-font mb-1">Action/Adventure</h3>
+                <h2 class="text-white title-font text-lg font-medium hover:text-red-600">Thor: Love and Thunder</h2></a>
+              </div>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+              <a href="https://mega.nz/file/m2gyWTRb#0qryxShL2Xjy45Xovd9trpp-gJybvNdn-Zf5RbB7GA0" class="block relative h-60 rounded overflow-hidden">
+                <img alt="ecommerce" class="object-cover object-center w-56 h-42 block border-solid border-2 border-sky-500" src="images/free_guy_ver2.jpg">
+              </a>
+              <div class="mt-4">
+                <a href="https://mega.nz/file/m2gyWTRb#0qryxShL2Xjy45Xovd9trpp-gJybvNdn-Zf5RbB7GA0"><h3 class="text-white text-xs tracking-widest title-font mb-1">Comedy/Action</h3>
+                <h2 class="text-white title-font text-lg font-medium hover:text-red-600">Free Guy</h2></a>
+              </div>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+              <a href="https://mega.nz/file/eiIUSYzR#tgPHhHPRBOpPPWOdTgmbc2DCcXaVE9V5HUHZDBGTv7U" class="block relative h-60 rounded overflow-hidden">
+                <img alt="ecommerce" class="object-cover object-center w-56 h-42 block border-solid border-2 border-sky-500" src="images/hulk.jpg">
+              </a>
+              <div class="mt-4">
+                <a href="https://mega.nz/file/eiIUSYzR#tgPHhHPRBOpPPWOdTgmbc2DCcXaVE9V5HUHZDBGTv7U"><h3 class="text-white text-xs tracking-widest title-font mb-1">Action/Sci-fi</h3>
+                <h2 class="text-white title-font text-lg font-medium hover:text-red-600">Hulk</h2></a>
+              </div>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+              <a href="https://mega.nz/file/X2wXHJBT#rKl7MthSApwQvsODO09ON6OW_e7X97N8KR5lDy7dTvY" class="block relative h-60 rounded overflow-hidden">
+                <img alt="ecommerce" class="object-cover object-center w-56 h-42 block border-solid border-2 border-sky-500" src="images/twenty_one_jump_street.jpg">
+              </a>
+              <div class="mt-4">
+                <a href="https://mega.nz/file/X2wXHJBT#rKl7MthSApwQvsODO09ON6OW_e7X97N8KR5lDy7dTvY"><h3 class="text-white text-xs tracking-widest title-font mb-1">Comedy/Action</h3>
+                <h2 class="text-white title-font text-lg font-medium hover:text-red-600">21 Jump Street</h2></a>
+              </div>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+              <a href="https://mega.nz/file/jugE1ACT#XYhkQZBaOyBBec7d0FI70kVq7hPb97vr-K9AkCSNmDo" class="block relative h-60 rounded overflow-hidden">
+                <img alt="ecommerce" class="object-cover object-center w-56 h-42 block border-solid border-2 border-sky-500" src="images/twenty_two_jump_street_ver4_xlg.jpg">
+              </a>
+              <div class="mt-4">
+                <a href="https://mega.nz/file/jugE1ACT#XYhkQZBaOyBBec7d0FI70kVq7hPb97vr-K9AkCSNmDo"><h3 class="text-white text-xs tracking-widest title-font mb-1">Comedy/Action</h3>
+                <h2 class="text-white title-font text-lg font-medium hover:text-red-600">22 Jump Street</h2></a>
+              </div>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+              <a href="https://mega.nz/file/GjI0GKBR#Q8XTRpndkwGaCCPLjcvPIqHLMzyg69nDV2_8qN6mksw" class="block relative h-60 rounded overflow-hidden">
+                <img alt="ecommerce" class="object-cover object-center w-56 h-42 block border-solid border-2 border-sky-500" src="images/inception_ver3.jpg">
+              </a>
+              <div class="mt-4">
+                <a href="https://mega.nz/file/GjI0GKBR#Q8XTRpndkwGaCCPLjcvPIqHLMzyg69nDV2_8qN6mksw"><h3 class="text-white text-xs tracking-widest title-font mb-1">Action/Sci-fi</h3>
+                <h2 class="text-white title-font text-lg font-medium hover:text-red-600">Inception</h2></a>
+              </div>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+              <a href="https://mega.nz/file/72RW3IhJ#yeurfzwtQ9a4yZ8mTljCYDxfheQ9_d1elMpRlCXzGhg" class="block relative h-60 rounded overflow-hidden">
+                <img alt="ecommerce" class="object-cover object-center w-56 h-42 block border-solid border-2 border-sky-500" src="images/blade_runner_twenty_forty_nine_ver4.jpg">
+              </a>
+              <div class="mt-4">
+                <a href="https://mega.nz/file/72RW3IhJ#yeurfzwtQ9a4yZ8mTljCYDxfheQ9_d1elMpRlCXzGhg"><h3 class="text-white text-xs tracking-widest title-font mb-1">Sci-fi/Action</h3>
+                <h2 class="text-white title-font text-lg font-medium hover:text-red-600">Blade Runner 2049</h2></a>
+              </div>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+              <a href="https://mega.nz/file/jiZxmAYT#potea2QbZ1XxKUnykjzE5m53EEcIJvyJuaYbJaB2Kfw" class="block relative h-60 rounded overflow-hidden">
+                <img alt="ecommerce" class="object-cover object-center w-56 h-42 block border-solid border-2 border-sky-500" src="images/nobody.jpg">
+              </a>
+              <div class="mt-4">
+                <a href="https://mega.nz/file/jiZxmAYT#potea2QbZ1XxKUnykjzE5m53EEcIJvyJuaYbJaB2Kfw"><h3 class="text-white text-xs tracking-widest title-font mb-1">Action/Thriller</h3>
+                <h2 class="text-white title-font text-lg font-medium hover:text-red-600">Nobody</h2></a>
+              </div>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+              <a href="https://mega.nz/file/DmIgWa6Z#1ClNIPiUKYe0u3OhtwotzyDBf_1WYiogYItrS4c3CcU" class="block relative h-60 rounded overflow-hidden">
+                <img alt="ecommerce" class="object-cover object-center w-56 h-42 block border-solid border-2 border-sky-500" src="images/matrix_ver1.jpg">
+              </a>
+              <div class="mt-4">
+                <a href="https://mega.nz/file/DmIgWa6Z#1ClNIPiUKYe0u3OhtwotzyDBf_1WYiogYItrS4c3CcU"><h3 class="text-white text-xs tracking-widest title-font mb-1">Sci-fi/Action</h3>
+                <h2 class="text-white title-font text-lg font-medium hover:text-red-600">The Matrix</h2></a>
+              </div>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+              <a href="https://mega.nz/file/6vhGzbYR#JE63UlbNfiPQMcQHqL2DxJw-dY620rKgT_YsA-qvGlA" class="block relative h-60 rounded overflow-hidden">
+                <img alt="ecommerce" class="object-cover object-center w-56 h-42 block border-solid border-2 border-sky-500" src="images/blair_witch_project_ver3.jpg">
+              </a>
+              <div class="mt-4">
+                <a href="https://mega.nz/file/6vhGzbYR#JE63UlbNfiPQMcQHqL2DxJw-dY620rKgT_YsA-qvGlA"><h3 class="text-white text-xs tracking-widest title-font mb-1">Horror/Found footage</h3>
+                <h2 class="text-white title-font text-lg font-medium hover:text-red-600">The Blair Witch Project</h2></a>
+              </div>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+              <a href="https://mega.nz/file/OiQRCJiB#Mk4PDJPLO25MBaQrqY1A9nbglLheEuEnj0tYOnG7IU8" class="block relative h-60 rounded overflow-hidden">
+                <img alt="ecommerce" class="object-cover object-center w-56 h-42 block border-solid border-2 border-sky-500" src="images/ford_v_ferrari_ver2.jpg">
+              </a>
+              <div class="mt-4">
+                <a href="https://mega.nz/file/OiQRCJiB#Mk4PDJPLO25MBaQrqY1A9nbglLheEuEnj0tYOnG7IU8"><h3 class="text-white text-xs tracking-widest title-font mb-1">Drama/Sport</h3>
+                <h2 class="text-white title-font text-lg font-medium hover:text-red-600">Ford v Ferrari</h2></a>
+              </div>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+              <a href="https://mega.nz/file/fi4U1BgA#VM1Fq5_-iXN52q5ciusJcuryc2zV79XYtImRdl4JScw" class="block relative h-60 rounded overflow-hidden">
+                <img alt="ecommerce" class="object-cover object-center w-56 h-42 block border-solid border-2 border-sky-500" src="images/game_night_ver4.jpg">
+              </a>
+              <div class="mt-4">
+                <a href="https://mega.nz/file/fi4U1BgA#VM1Fq5_-iXN52q5ciusJcuryc2zV79XYtImRdl4JScw"><h3 class="text-white text-xs tracking-widest title-font mb-1">Comedy/Action</h3>
+                <h2 class="text-white title-font text-lg font-medium hover:text-red-600">Game Night</h2></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer class="text-gray-400 bg-black bg-opacity-50 body-font">
+        <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+          <a class="flex title-font font-medium items-center md:justify-start justify-center text-white">
+            <img class="w-12 h-12 object-cover " src="images/icons8-pirate-100 (1).png" alt="blog">
+            <span class="ml-3 text-xl">Pirate H04X</span>
+          </a>
+          <p class="text-sm text-gray-400 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-800 sm:py-2 sm:mt-0 mt-4">© 2022 Pirate H04X —
+            <a href="/" class="text-gray-500 ml-1" target="_blank" rel="noopener noreferrer">@H04X</a>
+          </p>
+          <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+            <a class="text-gray-400">
+              <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+              </svg>
+            </a>
+            <a class="ml-3 text-gray-400">
+              <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+              </svg>
+            </a>
+            <a class="ml-3 text-gray-400">
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+              </svg>
+            </a>
+            <a class="ml-3 text-gray-400">
+              <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+                <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+                <circle cx="4" cy="4" r="2" stroke="none"></circle>
+              </svg>
+            </a>
+          </span>
+        </div>
+      </footer>
+</body>
+</html>
